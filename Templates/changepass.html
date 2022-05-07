@@ -1,0 +1,107 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset | Password</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/Android-Club-VITAP/BEAT-THE-HEAT/main/img/Img/favicon_io/favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login_reg/regcss.css' %}">
+    <style>
+        .fp p {
+            font-size: 22px;
+            text-transform: lowercase;
+            font-weight: 800;
+        }
+
+        #subres:disabled {
+            cursor: not-allowed;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="neo">
+        <div class="login">
+            <div class="logo">
+                <img src="https://github.com/Android-Club-VITAP/BEAT-THE-HEAT/raw/main/logo.jpeg" alt="logo">
+            </div>
+
+            <div id="text-about">DANCE CLUB VITAP</div>
+            <form class="forms" method="POST">
+                {% csrf_token %}
+                <div class="inputsfileds">
+                    <div class="password">
+                        <div>
+                            <svg class="svg-icon" viewBox="0 0 20 20">
+                                <path
+                                    d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="jsut">
+                            <input type="password" id="pass1" placeholder="password" name="pass" autocomplete="off"
+                                required oninput="checkpass()">
+                        </div>
+                    </div>
+                    <div class="password">
+                        <div>
+                            <svg class="svg-icon" viewBox="0 0 20 20">
+                                <path
+                                    d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="jsut">
+                            <input type="password" id="pass2" placeholder="confirm password" name="pass2"
+                                autocomplete="off" required oninput="checkpass()">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button disabled id="subres" type="submit">NEW PASSWORD</button>
+                </div>
+
+            </form>
+            <div class="fp">
+                <a href="#"> Forgot password</a> or <a href="/account/login/"> sign in</a>
+                <p id="text"></p>
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <script>
+            // 
+
+            function checkpass() {
+                let p1 = document.getElementById('pass1');
+                let p2 = document.getElementById('pass2');
+                if (p1.value != " " && p2.value != " ") {
+
+                    if (p1.value.length < 8) {
+                        document.getElementById('text').innerHTML = "Password lenght must be 8 char"
+                    } else if (p1.value != p2.value)
+                        document.getElementById('text').innerHTML = "PassWord Doesn't Match"
+                    else if (p1.value === p2.value) {
+                        document.getElementById('text').innerHTML = "Matching"
+                        document.getElementById("subres").disabled = false;
+                    }
+
+                }
+            }
+        </script>
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,271 @@
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        color: white;
+        
+    }
+
+    .navcontainer{
+       padding: 10px;
+       position: sticky;
+       z-index: 999;
+       box-shadow: 0px 0px 20px 0px #090909fa;
+       transition: background 1s ease;
+       background: #fff;
+       height: auto;
+       top: 0;
+    }
+   .navwrapper{
+       width: 80%;
+       align-items: center;
+       margin: auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+   }
+  .navwrapper .logo{
+    
+      color: #555;
+  }
+
+  .navtext{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      
+      
+  }
+
+  .container{
+      background: #ecf0f3;
+  }
+
+  .navtext ul,
+  .navtext ul li {
+      display: inline;
+      list-style: none;
+      color: #555;
+
+  }
+  .navtext ul li a {
+      text-decoration: none;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bolder;
+      margin-left: 24px;
+      color: black;
+  }
+  .dropdown {
+      overflow: hidden;
+      display: inline;
+      float: right;
+  }
+ .dropdown-content {
+     display: none;
+     position: absolute;
+     background-color: #f9f9f9;
+     width: 150px;
+     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+     z-index: 1;
+ }
+
+  .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: rgb(0, 0, 0);
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+  }
+  
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+ .dropdown-content a {
+     float: none;
+     color: black;
+     display: block;
+     padding: 12px 16px;
+ }
+ .dropdown:hover .dropdown-content {
+     display: block;
+ }
+   
+
+    .about {
+        text-align: center;
+        margin: 0 auto 30px auto;
+        text-transform: uppercase;
+          background: #ecf0f3;
+          padding-top: 30px;
+          flex-direction: row;
+        
+    }
+    
+    .about div{
+        padding-top: 10px;
+    }
+
+    .vidoeGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        justify-items: center;
+        border-radius: 5px;
+        grid-row-gap: 50px;
+        background: #ecf0f3;
+        min-height: 400px;
+
+    }
+
+    .vidoeDjango {
+        width: 340px;
+        overflow: hidden;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 13px 13px 20px #cbced1,
+        -13px -13px 20px #fff;
+        ;
+        
+    }
+
+  
+
+    .vidoeDjango h5 {
+        overflow: hidden;
+        color: black;
+
+
+    }
+    .vidoeDjango a{
+        color: black;
+    }
+      .container .about {
+          display: flex;
+          justify-content: center;
+      }
+    #pad {
+        margin-top: 10px;
+    }
+
+     @media only screen and (max-width: 1100px) {
+        
+          .vidoeGrid {
+               grid-template-columns: repeat(2, 1fr);
+          }
+     }
+
+        @media only screen and (max-width: 740px) {
+
+            .vidoeGrid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        @media only screen and (max-width: 380px) {
+          
+            .vidoeDjango {
+                width: 90%;
+            }
+
+            .vidoeDjango img{
+               width: 100% !important;
+            }
+            
+            .container .about {
+                flex-direction: column;
+            }
+            
+           
+           
+        }
+
+         @media only screen and (max-width: 480px) {
+             .about {
+                 flex-direction: column;
+             }
+         }
+
+
+
+
+
+.container .about label,
+input {
+    color: black;
+    margin-right: 10px;
+    outline: none;
+}
+
+.glow-on-hover {
+    width: 150px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8,
+            #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}

@@ -1,0 +1,56 @@
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+
+        }
+
+
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            text-transform: uppercase;
+            max-width: 80%;
+            min-width: 30%;
+            
+        }
+
+        .blue {
+            border: 5px solid #1ABC9C;
+        }
+
+        .blue thead {
+            background: #1ABC9C;
+        }
+
+        .blue thead:hover {
+            border: 5px solid #9B59B6;
+            background: #9B59B6;
+        }
+
+        th,
+        td {
+            
+            padding: 5px 10px;
+            font-weight: bolder;
+            width: auto;
+
+        }
+         td{
+             height: 40px;
+             overflow: hidden;
+         }
+
+        th {
+            height: 60px;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #ECF0F1;
+        }
+
+        tbody tr:hover {
+            background: #BDC3C7;
+            color: #FFFFFF;
+        }

@@ -1,0 +1,57 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>all marks</title>
+       <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/Android-Club-VITAP/BEAT-THE-HEAT/main/img/Img/favicon_io/favicon.ico">
+
+    <link rel="stylesheet" href="{% static 'css/getmarkscss.css' %}">
+</head>
+
+
+<body>
+    <div class="Header">
+        <div>
+            <h1><a href="/" style="text-decoration: none; color: white; padding: 10px;">BITE DANCE</a></h1>
+        </div>
+        <div class="right">
+            <div><a href="/upload/"> UPLOAD VIDEO</a></div>
+            <div><a href="/bitdance/moderator/"> MODERATION DETAILS</a> </div>
+            {% if user.is_staff %}
+            <div><a href="/bitdance/GodMode/">GOD MODE</a></div>
+            {% else %}
+            <div>LOGGED IN AS {{user}}</div>
+            {%endif%}
+            <div><a href="/account/logout/"> LOG OUT </a> </div>
+        </div>
+    </div>
+
+    <div>
+        <table class="blue">
+            <thead>
+                <tr>
+                    <th>CAPTIONS</th>
+                    <th> link </th>
+                    <th>marks</th>
+                    <th>USER</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data %}
+                <tr>
+                    <td>{{i.captions}}</td>
+                    <td><a href="/videos/{{i.url_64encoding}}">LINK</a></td>
+                    <td>{{i.Total_marks}}</td>
+                    <td>{{i.username}}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
